@@ -1,5 +1,12 @@
 #include <iostream>
 
+
+//This is a comment
+//To comment many lines --> highligt --> ctr + k + c
+//To uncomment many lines --> hightligt --> ctr + k + u
+
+
+
 int main() {
 
     int favorite_number;
@@ -11,6 +18,8 @@ int main() {
     std::cout << "\n" << favorite_number << std::endl;
 
     std::cout << "Amazing! That's my favorite number too!" << std::endl;
+
+    std::cout << "No really!! " << favorite_number << " is my favorite number!" << std::endl;
 
     return 0;
 }

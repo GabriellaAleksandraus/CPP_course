@@ -31,6 +31,8 @@ int main() {
 
     pennies = the_rest;
 
+
+    cout << "This is the change: " << endl;
     cout << "dollars : " << dollars <<"\nquartes : " << quarters << "\ndimes   : " << dimes << "\nnickels : " << nickels <<"\npennies : " << pennies << endl;
 
 }

@@ -81,8 +81,8 @@ int main() {
         cout << "Enter you choice: " << endl;
         cin >> selection;
 
-        vector <int> collection_of_integers{1, 3};
-        //int number{0};
+        vector <int> collection_of_integers{};
+        int number{0};
 
         if (selection == 'P' || selection =='p') {
             if (collection_of_integers.size() == 0) {
@@ -98,7 +98,9 @@ int main() {
             
         }
         else if (selection == 'A' || selection == 'a') {
-            cout << "A"<< endl;
+            cin >> number;
+            collection_of_integers.push_back(number);
+            cout << number << " added." << endl; 
         }
         else if (selection == 'M' || selection == 'm') {
             cout << "M"<< endl;

@@ -64,12 +64,19 @@ Good luck!
 */
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 int main() {
     
     char selection {};
+    vector <int> collection_of_integers{};
+    int number{0};
+    double sum{};
+    double mean{};
+    int smallest_number{};
+    int largest_number{};
     do {
 
         cout << "P - Print numbers" << endl;
@@ -78,15 +85,13 @@ int main() {
         cout << "S - Display the smallest number" << endl;
         cout << "L - Display the largest number" << endl;
         cout << "Q - Quit" << endl;
-        cout << "Enter you choice: " << endl;
+        cout << "\nEnter you choice: " << endl;
         cin >> selection;
 
-        vector <int> collection_of_integers{};
-        int number{0};
 
         if (selection == 'P' || selection =='p') {
-            if (collection_of_integers.size() == 0) {
-                cout << "[] - the list is empty" << endl;
+            if (collection_of_integers.empty()) {
+                cout << "\n[] - the list is empty\n" << endl;
             }
             else {
                 cout << "[ ";
@@ -100,19 +105,47 @@ int main() {
         else if (selection == 'A' || selection == 'a') {
             cin >> number;
             collection_of_integers.push_back(number);
-            cout << number << " added." << endl; 
+            cout << number << " added." << endl;
         }
         else if (selection == 'M' || selection == 'm') {
             cout << "M"<< endl;
+            if (collection_of_integers.empty()) {
+                cout << "\nUnable to calculate the mean. The list is empty\n" << endl;
+            }
+            else {
+                for (int number : collection_of_integers) {
+                    sum += number ;
+                }
+                mean = sum / collection_of_integers.size();
+                cout << "\nMean: " << mean << "\n" << endl;
+            }
         }
         else if (selection == 'S' || selection == 's') {
-            cout << "S"<< endl;
+            if (collection_of_integers.empty()) {
+                cout << "\nThe list is empty\n" << endl;
+            }
+            else {
+                auto smallest_number
+                    = min_element(collection_of_integers.begin(), collection_of_integers.end());
+
+                cout << "\nThe smallest number is: " << *smallest_number << "\n" << endl;
+            }
         }
         else if (selection == 'L' || selection == 'l') {
-            cout << "L"<< endl;
+            if (collection_of_integers.empty()) {
+                cout << "\nThe list is empty\n" << endl;
+            }
+            else {
+                auto largest_number
+                    = max_element(collection_of_integers.begin(), collection_of_integers.end());
+
+                cout << "\nThe largest number is: " << *largest_number << "\n" << endl;
+            }            
+
         }
         else if (selection == 'Q' || selection == 'q') {
-            cout << "Q"<< endl;
+            cout << "Goodbye!"<< endl;
+            exit(0);
         }
         else {
             cout << "Unknown selection, please try again" << endl;

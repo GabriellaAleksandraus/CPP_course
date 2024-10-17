@@ -75,8 +75,6 @@ int main() {
     int number{0};
     double sum{};
     double mean{};
-    int smallest_number{};
-    int largest_number{};
     do {
 
         cout << "P - Print numbers" << endl;

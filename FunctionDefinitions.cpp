@@ -15,15 +15,15 @@ void area_circle() {
 
 }
 
-void volume_cylinder() {
-
-}
 
 
 int main() {
 
     area_circle();
-    volume_cylinder();
+    area_circle();
+    area_circle();
+    area_circle();
+
 
     return 0;
 }

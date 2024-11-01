@@ -14,14 +14,13 @@ void displayMenu() {
 
 }
 
-double calcMean(std::vector <int> collectionOfIntegers) {
+double calcMean(const std::vector<int>& collectionOfIntegers) {
     double sum{};
-    double mean{};
     
     for (int number : collectionOfIntegers) {
         sum += number ;
     }
-    mean = sum / collectionOfIntegers.size();
+    double mean = sum / collectionOfIntegers.size();
 
     return mean;
 
@@ -35,7 +34,7 @@ char parseSelection(char selection) {
 
 }
 
-void printNumbers(std::vector <int> collectionOfIntegers) {
+void printNumbers(const std::vector<int>& collectionOfIntegers) {
     if (collectionOfIntegers.empty()) {
         std::cout << "\n[] - the list is empty\n" << std::endl;
     }
@@ -49,12 +48,12 @@ void printNumbers(std::vector <int> collectionOfIntegers) {
 
 }
 
-void addNumbers(std::vector <int>& collectionOfIntegers, int number) {
+void addNumbers(std::vector<int>& collectionOfIntegers, int number) {
     collectionOfIntegers.push_back(number);
     std::cout << number << " added." << std::endl;
 }
 
-void displayMean(std::vector <int>& collectionOfIntegers) {
+void displayMean(const std::vector<int>& collectionOfIntegers) {
 
     if (collectionOfIntegers.empty()) {
         std::cout << "\nUnable to calculate the mean. The list is empty\n" << std::endl;
@@ -64,25 +63,25 @@ void displayMean(std::vector <int>& collectionOfIntegers) {
     }
 }
 
-void displaySmallestNumber(std::vector <int>& collectionOfIntegers) {
+void displaySmallestNumber(const std::vector<int>& collectionOfIntegers) {
     if (collectionOfIntegers.empty()) {
         std::cout << "\nThe list is empty\n" << std::endl;
     }
     else {
         auto smallest_number
-            = min_element(collectionOfIntegers.begin(), collectionOfIntegers.end());
+            = std::min_element(collectionOfIntegers.begin(), collectionOfIntegers.end());
 
         std::cout << "\nThe smallest number is: " << *smallest_number << "\n" << std::endl;
     }
 }
 
-void displayLargestNumber(std::vector <int>& collectionOfIntegers) {
+void displayLargestNumber(const std::vector<int>& collectionOfIntegers) {
     if (collectionOfIntegers.empty()) {
         std::cout << "\nThe list is empty\n" << std::endl;
     }
     else {
         auto largest_number
-            = max_element(collectionOfIntegers.begin(), collectionOfIntegers.end());
+            = std::max_element(collectionOfIntegers.begin(), collectionOfIntegers.end());
 
         std::cout << "\nThe largest number is: " << *largest_number << "\n" << std::endl;
     }    
